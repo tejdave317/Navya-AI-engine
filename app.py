@@ -54,7 +54,7 @@ if module == "1. संदर्भ इंजन (Avacchedaka)":
             available_contexts = list(engine.knowledge_base[word].keys())
         else:
         context = st.selectbox("संदर्भ (अवच्छेदक) चुनें:",)
-        if st.button("अर्थ स्पष्ट करें (Resolve Meaning)"):
+        if st.button("अर्थ स्पष्ट करें (Resolve Meaning)")
             result = engine.resolve_meaning(word, context)
             st.session_state['context_result'] = result
     with col2:
