@@ -53,8 +53,7 @@ if module == "1. संदर्भ इंजन (Avacchedaka)":
         if word in engine.knowledge_base:
             available_contexts = list(engine.knowledge_base[word].keys())
         else:
-            available_contexts =
-            
+        
         context = st.selectbox("संदर्भ (अवच्छेदक) चुनें:", available_contexts)
         if st.button("अर्थ स्पष्ट करें (Resolve Meaning)"):
             result = engine.resolve_meaning(word, context)
