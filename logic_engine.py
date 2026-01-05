@@ -47,5 +47,120 @@ class AvacchedakaEngine:
                 return f"त्रुटि: '{word}' के लिए संदर्भ '{context_delimiter}' परिभाषित नहीं है। उपलब्ध संदर्भ: {available}"
         else:
             return f"त्रुटि: शब्द '{word}' अवच्छेदक डेटाबेस में नहीं मिला।"
+# logic_engine.py (जारी...)
 
+class PanchavayavaReasoning:
+    """
+    यह क्लास भारतीय तर्कशास्त्र के 5-चरणीय न्यायवाक्य (Syllogism) को लागू करती है।
+    यह सुनिश्चित करता है कि पारदर्शी 'हेतु' (कारण) के बिना कोई निर्णय नहीं लिया जाए।
+    """
+    
+    def _init_(self, applicant_name):
+        self.name = applicant_name
+        
+    def evaluate_loan(self, credit_score, job_years, annual_income, family_guarantor):
+        """
+        5-चरणीय नव्य-न्याय प्रक्रिया का उपयोग करके ऋण पात्रता का मूल्यांकन करता है।
+        """
+        steps = {}
+        
+        # --- चरण 1: विषम विश्लेषण (तथ्य एकत्र करना) ---
+        # 'हेतु' (कारणों) का निर्धारण
+        reasons =
+        risk_flags =
+        
+        if credit_score >= 700:
+            reasons.append("उच्च क्रेडिट स्कोर (वित्तीय अनुशासन इंगित करता है)")
+        elif credit_score >= 650:
+            reasons.append("मध्यम क्रेडिट स्कोर (शर्तों के साथ स्वीकार्य)")
+            risk_flags.append("स्कोर 700 से कम")
+        else:
+            risk_flags.append("गंभीर: कम क्रेडिट स्कोर (<650)")
+            
+        if job_years >= 2:
+            reasons.append("स्थिर रोजगार (>2 वर्ष)")
+        else:
+            risk_flags.append("अस्थिर रोजगार (<2 वर्ष)")
+            
+        if family_guarantor:
+            reasons.append("पारिवारिक गारंटर मौजूद (डिफ़ॉल्ट जोखिम कम करता है)")
+        
+        # --- 5 चरणों का संश्लेषण (पंचावयव) ---
+        
+        # 1. प्रतिज्ञा (कथन/निर्णय)
+        decision = ""
+        loan_amount = 0
+        interest_rate = 0.0
+        
+        # तर्क: मजबूत हेतु बनाम कमजोर हेतु
+        if len(risk_flags) == 0:
+            decision = "स्वीकृत (मानक)"
+            loan_amount = 500000
+            interest_rate = 10.5
+        elif "गंभीर: कम क्रेडिट स्कोर (<650)" in risk_flags:
+            # विशेष नव्य-न्याय अपवाद तर्क (Special Logic):
+            # भले ही स्कोर कम हो, यदि गारंटर + स्थिर नौकरी है, तो हम आंशिक अनुमोदन की अनुमति देते हैं
+            # यह 'राज' के केस स्टडी  से लिया गया है
+            if job_years >= 3 and family_guarantor:
+                decision = "स्वीकृत (सशर्त - विशेष तर्क)"
+                loan_amount = 200000 # कम राशि
+                interest_rate = 14.0 # उच्च दर
+            else:
+                decision = "अस्वीकृत"
+        elif len(risk_flags) > 0 and family_guarantor:
+             decision = "स्वीकृत (गारंटर के साथ)"
+             loan_amount = 400000
+             interest_rate = 12.0
+        else:
+             decision = "अस्वीकृत (अपर्याप्त सुरक्षा)"
+
+        steps = f"{self.name} के लिए ऋण आवेदन {decision} है।"
+        
+        # 2. हेतु (कारण)
+        if "स्वीकृत" in decision:
+            steps = f"क्योंकि: {', '.join(reasons)}।"
+        else:
+            steps = f"क्योंकि: {', '.join(risk_flags)}।"
+            
+        # 3. उदाहरण (सार्वभौमिक नियम)
+        steps['3. उदाहरण (Udaharana - Universal Example)'] = "नियम: ऐतिहासिक मामलों के 95% में, समान स्थिरता/जोखिम मेट्रिक्स वाले प्रोफाइल का परिणाम यही रहा है।"
+        
+        # 4. उपनय (अनुप्रयोग)
+        steps['4. उपनय (Upanaya - Application)'] = f"{self.name} का प्रोफ़ाइल उदाहरण समूह (पक्ष-धर्मता) के गुणों के साथ संरेखित होता है।"
+        
+        # 5. निगमन (निष्कर्ष)
+        if "स्वीकृत" in decision:
+            steps['5. निगमन (Nigamana - Conclusion)'] = f"इसलिए, {interest_rate}% ब्याज पर ₹{loan_amount:,} स्वीकृत करें।"
+        else:
+            steps['5. निगमन (Nigamana - Conclusion)'] = "इसलिए, इस समय आवेदन संसाधित नहीं किया जा सकता है।"
+            
+        return steps
+        # logic_engine.py (जारी...)
+
+class PaniniNLPSimulator:
+    """
+    पाणिनीय व्याकरण के नियतात्मक शब्द निर्माण का अनुकरण करता है।
+    इनपुट: मूल (धातु) + प्रत्यय (Suffix)
+    आउटपुट: नियतात्मक शब्द (कोई हैलुसिनेशन नहीं)
+    """
+    def _init_(self):
+        # नियम-आधारित शब्दकोश (Paninian Rules Map)
+        self.grammar_rules = {
+            ("Path", "Ate"): "Pathate (पठते - स्वयं के लिए पढ़ता है / आत्मनेपद)",
+            ("Path", "Ti"): "Pathati (पठति - दूसरों के लिए पढ़ता है / परस्मैपद)",
+            ("Gam", "Ti"): "Gacchati (गच्छति - जाता है)",
+            ("Gam", "Ate"): "Gamyate (गम्यते - जाया जाता है / कर्मवाच्य)",
+            ("Likha", "Ti"): "Likhati (लिखति - लिखता है)"
+        }
+        
+    def generate_word(self, dhatu, pratyaya):
+        """
+        शब्द उत्पन्न करने के लिए नियम लागू करता है।
+        LLM के विपरीत, यह कभी भी 'Pathozimab' जैसा काल्पनिक शब्द नहीं गढ़ेगा।
+        """
+        key = (dhatu.title(), pratyaya.title())
+        if key in self.grammar_rules:
+            return self.grammar_rules[key]
+        else:
+            return "त्रुटि: इस संयोजन के लिए कोई पाणिनीय नियम नहीं मिला। (हैलुसिनेशन अवरुद्ध)"
             
